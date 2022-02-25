@@ -1,0 +1,67 @@
+
+.Chat {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    
+    .chatArea {
+        display: flex;
+        align-items: center;
+        &.me{
+            justify-content: flex-end;
+        }
+        &.others{
+            justify-content: flex-start;
+        }
+        .profile{
+            height: 30px;
+            width: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            font-size: 14px;
+            background-color: rgb(197, 218, 236);
+            color: black;
+        }
+        .textbox {
+            max-width: 60%;
+            padding: 10px;
+            border-radius: 10px;
+            margin: 15px;
+            &.me{
+                background-color: #58bf56;
+                color: white;
+            }
+            &.others{
+                background-color: #e5e6ea;
+                color: black;
+            }
+        }
+    }
+
+    .inputForm{
+        display: flex;
+        align-self: center;
+        width: 90%;
+        justify-content: space-between;
+
+        .user{
+            flex: 0.25;
+            border-radius: 10px;
+        }
+        .content{
+            flex: 0.70;
+            border-radius: 10px;
+        }
+
+        button {
+            background-color: bisque;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            padding: 10px;
+            cursor: pointer;
+        }
+    }
+}
