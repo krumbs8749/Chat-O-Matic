@@ -8,9 +8,14 @@ This is web app that allows user to chat in realtime using the GraphQl subscript
   - [The Project](#the-project)
 - [My process](#my-process)
   - [Built with](#built-with)
-  - [How it works](#how-it-works)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
+  - [Server](#server)
+  - [CLient](#client)
+  - [Getting the new messages in realtime](#getting-the-new-messages-in-realtime)
+  - [Solution using GraphQL subscriptions](#solution-using-graphql-subscriptions)
+  - [Websocket connection](#websocket-connection)
+  - [Module Federations](#module-federations-home-page)
+- [Continued development](#continued-development)
+- [Useful resources](#useful-resources)
 - [Author](#author)
 
 
@@ -44,13 +49,8 @@ Each component serves different purposes for the creation of this project.
 
 
 
-### How it works
-
-The specifics of each component is explained in respective README.md in each components' folder. 
-The overview of the whole project is as below:
-
-**Server**
-- Server component is used to deploy a GraphQL server that allow users from the client side of application to request and add data to it dynamically
+### Server
+**Server component is used to deploy a GraphQL server that allow users from the client side of application to request and add data to it dynamically**
 
 - Every GraphQl needs a schema and this is mine
 ```js
@@ -105,8 +105,8 @@ const startServer = () => {
 ```
 [The resulting GraphQL side](./graphQl.png)
 
-**Client**
-- The UI is built with React library and SCSS. To connect with the server side, I used the [Apollo client](https://www.apollographql.com/docs/react/get-started/).
+### Client
+**The UI is built with React library and SCSS. To connect with the server side, I used the [Apollo client](https://www.apollographql.com/docs/react/get-started/).**
 
 -  This is how i interact with server using Apollo client
 ```js
@@ -155,8 +155,7 @@ const interactingWithServer = () => {
                                    // {user, content}
 }
 ```
-
-**Getting the new messages in realtime**
+### Getting the new messages in realtime
 
 - Initially there's a way to ask the client side to request the data from the server within a specific amount of interval. This can be added in the {useQuery} function.
 ```js
@@ -168,7 +167,7 @@ const pollInterval = () => {
 ```
 - However, this is not effcient way to go around it as the client will keep hitting on the server even when no new messages is being sent. This would result in a load of overhead and API request to the server that's there for no reasons.
 
-**Solution using GraphQL subscriptions**
+### Solution using GraphQL subscriptions
 
 - First we need to create a new context called pubsub which we import from graphql
 ```js
@@ -229,8 +228,8 @@ const addSubscriptionOnSchema = () => {
 }
 ```
 
-**Websocket connection**
-- Essentially is an upgraded version of normal HTTP connection. Websocket flips around the connection making it a live, continuous connection between the server and the client. GraphQL protocol which sits on top of this could then accept incoming data from the server when subscription is updated. 
+### Websocket connection
+**Essentially is an upgraded version of normal HTTP connection. Websocket flips around the connection making it a live, continuous connection between the server and the client. GraphQL protocol which sits on top of this could then accept incoming data from the server when subscription is updated.**
 
 On the client side:
 
@@ -276,8 +275,8 @@ const useSubscription = () => {
 }
 ```
 
-**Module Federations (home-page)**
-- Generally, in medium to large size companies, an app is composed of a bunch of smaller apps. In this module, sharing code could be a little bit problematic. Module federation allow us to take parts and pieces of the app and share it directly out of the app. It is also a live system, which means for example if the client component is updated, then it would automatically update the app that's consuming the chat component.
+### Module Federations (home-page)
+**Generally, in medium to large size companies, an app is composed of a bunch of smaller apps. In this module, sharing code could be a little bit problematic. Module federation allow us to take parts and pieces of the app and share it directly out of the app. It is also a live system, which means for example if the client component is updated, then it would automatically update the app that's consuming the chat component.**
 
 - In the webpack configuration of the newly created React app, tweak the module federation 
 ```js
@@ -348,13 +347,13 @@ const client = () =>{
  Now, in our application, we are importing chat as a react component. It is the actual react code from another application, automatically imported and live at run time.
 
 
-### Continued development
+## Continued development
 
 Throughout the project I have learned a lot especially on the topic GraphQL and the Module Federation.
 In my future projects, I will try to explore more on the use cases of GraphQL and have a better understanding of GraphQL subscriptions and the Module Federations as it is still quite confusing to me.
 
 
-### Useful resources
+## Useful resources
 
 - [Apollo client](https://www.apollographql.com/docs/react/get-started/) - The documentation on the website is pretty thorough which had helped completing the project
 - [nodemon](https://www.npmjs.com/package/nodemon) - nodemon is a tool that helps develop node.js based app by automatically restarting the node app when file changes in the directory are detected. With this, don't need to restart my app manually everytime I made any changes to it 
