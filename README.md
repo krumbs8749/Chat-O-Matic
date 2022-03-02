@@ -1,6 +1,6 @@
 # Realtime Chat App
 
-This isa web app that allows user to chat in realtime using the GraphQl subscriptions and Apollo client.
+This is web app that allows user to chat in realtime using the GraphQl subscriptions and Apollo client.
 
 ## Table of contents
 
