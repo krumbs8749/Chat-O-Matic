@@ -9,7 +9,7 @@ This is web app that allows user to chat in realtime using the GraphQl subscript
 - [My process](#my-process)
   - [Built with](#built-with)
   - [Server](#server)
-  - [CLient](#client)
+  - [Client](#client)
   - [Getting the new messages in realtime](#getting-the-new-messages-in-realtime)
   - [Solution using GraphQL subscriptions](#solution-using-graphql-subscriptions)
   - [Websocket connection](#websocket-connection)
