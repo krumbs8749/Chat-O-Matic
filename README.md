@@ -50,7 +50,7 @@ The specifics of each component is explained in respective README.md in each com
 The overview of the whole project is as below:
 
 **Server**
-component is used to deploy a GraphQL server that allow users from the client side of application to request and add data to it dynamically
+- Server component is used to deploy a GraphQL server that allow users from the client side of application to request and add data to it dynamically
 
 - Every GraphQl needs a schema and this is mine
 ```js
@@ -106,7 +106,7 @@ const startServer = () => {
 [The resulting GraphQL side](./graphQl.png)
 
 **Client**
-The UI is built with React library and SCSS. To connect with the server side, I used the [Apollo client](https://www.apollographql.com/docs/react/get-started/).
+- The UI is built with React library and SCSS. To connect with the server side, I used the [Apollo client](https://www.apollographql.com/docs/react/get-started/).
 
 -  This is how i interact with server using Apollo client
 ```js
@@ -230,7 +230,7 @@ const addSubscriptionOnSchema = () => {
 ```
 
 **Websocket connection**
-essentially is an upgraded version of normal HTTP connection. Websocket flips around the connection making it a live, continuous connection between the server and the client. GraphQL protocol which sits on top of this could then accept incoming data from the server when subscription is updated. 
+- Essentially is an upgraded version of normal HTTP connection. Websocket flips around the connection making it a live, continuous connection between the server and the client. GraphQL protocol which sits on top of this could then accept incoming data from the server when subscription is updated. 
 
 On the client side:
 
@@ -276,8 +276,8 @@ const useSubscription = () => {
 }
 ```
 
-**Module Federations (home-page) -**
- Generally, in medium to large size companies, an app is composed of a bunch of smaller apps. In this module, sharing code could be a little bit problematic. Module federation allow us to take parts and pieces of the app and share it directly out of the app. It is also a live system, which means for example if the client component is updated, then it would automatically update the app that's consuming the chat component.
+**Module Federations (home-page)**
+- Generally, in medium to large size companies, an app is composed of a bunch of smaller apps. In this module, sharing code could be a little bit problematic. Module federation allow us to take parts and pieces of the app and share it directly out of the app. It is also a live system, which means for example if the client component is updated, then it would automatically update the app that's consuming the chat component.
 
 - In the webpack configuration of the newly created React app, tweak the module federation 
 ```js
